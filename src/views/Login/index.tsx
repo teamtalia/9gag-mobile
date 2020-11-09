@@ -16,7 +16,7 @@ import {
 const Login: React.FC = () => {
   return (
     <Container>
-      <Logo>9GAG</Logo>
+      <Logo>Θαλία</Logo>
       <LoginWrapper>
         <AuthOptions>
           <AuthLink active>LOGIN</AuthLink>
