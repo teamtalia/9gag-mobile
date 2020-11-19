@@ -6,8 +6,8 @@ import React, { createContext, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import { loadAsync, useFonts } from 'expo-font';
 import Routes from './routes';
-import Themes, { ThemeType } from './themes';
-import Dark from './themes/Dark';
+import { ThemeType } from './themes';
+import useTheme from './hooks/useTheme';
 
 interface AppContextInterface {
   setTheme?: React.Dispatch<React.SetStateAction<ThemeType>>;
@@ -15,14 +15,9 @@ interface AppContextInterface {
 
 const AppContext = createContext<AppContextInterface>({});
 
-export default function App() {
-  const [theme, setTheme] = useState<ThemeType>(Themes.default);
+const App: React.FC = () => {
+  const { theme, setTheme } = useTheme();
   const [loadedFonts, setLoadedFonts] = useState(false);
-  // const [loadedFonts] = useFonts({
-  //   AktivRegular: require('../assets/fonts/AktivGroteskCorp-Regular.ttf'),
-  //   AktivBold: require('../assets/fonts/AktivGroteskCorp-Bold.ttf'),
-  //   AktivMedium: require('../assets/fonts/AktivGroteskCorp-Medium.ttf'),
-  // });
 
   useEffect(() => {
     const loadFonts = async () => {
@@ -30,11 +25,16 @@ export default function App() {
         AktivRegular: require('../assets/fonts/AktivGroteskCorp-Regular.ttf'),
         AktivBold: require('../assets/fonts/AktivGroteskCorp-Bold.ttf'),
         AktivMedium: require('../assets/fonts/AktivGroteskCorp-Medium.ttf'),
+        'bebaes-neue': require('../assets/fonts/BebasNeue-Regular.ttf'),
       });
       setLoadedFonts(true);
     };
     loadFonts();
   }, []);
+
+  if (!loadedFonts) {
+    return null;
+  }
 
   return (
     <AppContext.Provider
@@ -42,12 +42,13 @@ export default function App() {
         setTheme,
       }}
     >
-      <ThemeProvider theme={Dark}>
+      <ThemeProvider theme={theme}>
         <StatusBar />
         <Routes />
       </ThemeProvider>
     </AppContext.Provider>
   );
-}
+};
+export default App;
 
 registerRootComponent(App);

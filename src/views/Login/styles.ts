@@ -1,10 +1,71 @@
+import { darken, lighten } from 'polished';
+import { TouchableHighlightProps } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
   align-items: center;
+  justify-content: flex-start;
+  background-color: ${({ theme }) => theme.primary};
+`;
+
+export const ButtonsContainer = styled.View`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0px 20px 10px 20px;
+  align-items: center;
+`;
+interface ButtonProps extends TouchableHighlightProps {
+  isFb?: boolean;
+}
+export const Button = styled.TouchableHighlight<ButtonProps>`
+  align-items: center;
   justify-content: center;
-  background-color: ${props => props.theme.bgColor};
+  border-radius: 2px;
+  width: 80px;
+  height: 45px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  background-color: ${({ theme }) => lighten(0.05, theme.primary)};
+  border-radius: 4px;
+`;
+
+// eslint-disable-next-line prettier/prettier
+export const FullButtonWithIcon = styled(Button)`
+  flex-direction: row;
+  width: 95%;
+  margin-bottom: 8px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${({ theme, isFb }) =>
+    isFb ? theme.colorBlue : theme.bgColor};
+`;
+export const Icon = styled.View`
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 1;
+  min-width: 50px;
+  margin-right: 15px;
+`;
+
+export const ButtonContent = styled.Text`
+  color: ${({ theme }) => theme.primaryForeground};
+  font-family: 'AktivRegular';
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+`;
+export const ButtonFullContent = styled(ButtonContent)`
+  flex: 1;
+`;
+export const Text = styled.Text`
+  color: ${({ theme }) => theme.primaryDarkenForeground};
+  font-size: 16px;
+  font-family: 'AktivRegular';
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Logo = styled.Text`
@@ -15,75 +76,37 @@ export const Logo = styled.Text`
 `;
 
 export const LoginWrapper = styled.View`
-  position: relative;
+  margin: 15px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 350px;
-  width: 304px;
-  background-color: #fff;
-  border-radius: 28px;
-  box-shadow: 0px 7px 22px rgba(0, 0, 0, 0.97);
+  background-color: transparent;
+  width: 100%;
 `;
 
-export const InputLogin = styled.TextInput`
-  width: 235px;
+export const InputLogin = styled.TextInput.attrs(props => ({
+  placeholderTextColor: props.theme.primaryDarkenForeground,
+}))`
+  width: 95%;
   border-radius: 8px;
-  background-color: #d8d8d8;
+  background-color: ${({ theme }) => darken(0.02, theme.primary)};
   padding: 11px 10px 8px 15px;
   font-family: 'AktivRegular';
+  color: #fff;
   margin-bottom: 20px;
-  &::placeholder {
-    color: #222222;
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: red;
+  }
+  :-ms-input-placeholder {
+    color: red;
   }
 `;
-
-export const InputLabel = styled.Text`
-  font-family: 'AktivMedium';
-  font-size: 16px;
-  width: 225px;
-  margin-left: 10px;
-  margin-bottom: 6px;
-  color: #222;
-  opacity: 0.5;
-`;
-
-export const AuthOptions = styled.View`
+export const Footer = styled.View`
+  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
-  width: 80%;
-  justify-content: space-evenly;
-  margin-bottom: 15px;
-`;
-
-interface AuthLinkProps {
-  active?: boolean;
-}
-
-export const AuthLink = styled.Text<AuthLinkProps>`
-  font-size: 22px;
-  font-family: 'AktivRegular';
-  color: #222222;
-  opacity: ${props => (props.active ? 1 : 0.23)};
-`;
-
-export const NextStepContainer = styled.View`
-  position: absolute;
-  bottom: -47px;
-  left: 105px;
-  width: 94px;
-  height: 94px;
-  background-color: #fff;
-  border-radius: 47px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-export const NextStepButton = styled.View`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  background-color: #222222;
-  border-radius: 32px;
+  width: 95%;
+  height: 45px;
+  padding: 0 10px;
 `;

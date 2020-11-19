@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/bin/yarnpkg add expo-icons
+  /usr/bin/node /usr/bin/yarn add @types/polished -D
 
 PATH: 
   /home/thales/.pyenv/plugins/pyenv-virtualenv/shims:/home/thales/.pyenv/shims:/home/thales/.pyenv/bin:/home/thales/.config/composer/vendor/bin:/home/thales/.zinit/polaris/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64:/home/thales/.yarn/bin:/home/thales/Android/Sdk/emulator:/home/thales/Android/Sdk/tools:/home/thales/Android/Sdk/tools/bin:/home/thales/Android/Sdk/platform-tools:/home/thales/android-studio/bin:/home/thales/anki/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/expo-icons: Not found
+  Error: https://registry.yarnpkg.com/@types%2fpolished: Not found
       at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66987:18)
       at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140748:22)
       at Request.emit (events.js:314:20)
@@ -40,6 +40,7 @@ npm manifest:
       "coverage": "jest --coverage"
     },
     "dependencies": {
+      "@expo/vector-icons": "^10.2.1",
       "@react-native-community/masked-view": "0.1.10",
       "@react-navigation/native": "^5.8.6",
       "@react-navigation/stack": "^5.12.4",
@@ -47,6 +48,7 @@ npm manifest:
       "expo": "~39.0.2",
       "expo-font": "~8.3.0",
       "expo-status-bar": "~1.0.2",
+      "polished": "^4.0.3",
       "react": "16.13.1",
       "react-dom": "16.13.1",
       "react-icons": "^3.11.0",
@@ -1112,7 +1114,7 @@ Lockfile:
       core-js-pure "^3.0.0"
       regenerator-runtime "^0.13.4"
   
-  "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+  "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.0", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
     version "7.12.5"
     resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
     integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -1449,7 +1451,7 @@ Lockfile:
     dependencies:
       cross-spawn "^6.0.5"
   
-  "@expo/vector-icons@^10.0.2":
+  "@expo/vector-icons@^10.0.2", "@expo/vector-icons@^10.2.1":
     version "10.2.1"
     resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.2.1.tgz#47fb2fa12d7ad601835babde6bd3ddea7f6fde89"
     integrity sha512-clYQZFLeU2y23n03hXg18EEsZS5c73sJJnfderztfSAqkUXkfUtv07fwuprYwbHIvgFkw6L7R6xJOCVYtS85iQ==
@@ -7950,6 +7952,13 @@ Lockfile:
     version "5.0.0"
     resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-5.0.0.tgz#e79dd2b215767fd9c04561c01236df960bce7fbb"
     integrity sha512-40QW5YalBNfQo5yRYmiw7Yz6TKKVr3h6970B2YE+3fQpsWcrbj1PzJgxeJ19DRQjhMbKPIuMY8rFaXc8moolVw==
+  
+  polished@^4.0.3:
+    version "4.0.3"
+    resolved "https://registry.yarnpkg.com/polished/-/polished-4.0.3.tgz#e2bde249f8884bdabc6997dd3eca225ee32f7a26"
+    integrity sha512-yOALHMrqcYHlHIxFkHvGX8NGsjsbSaYMZ8Z3uEElVpzF5ZgNmTgqMOh4bnSVXGC6sXjBTZCH6+GebTRWhJR4zQ==
+    dependencies:
+      "@babel/runtime" "^7.12.0"
   
   posix-character-classes@^0.1.0:
     version "0.1.1"
