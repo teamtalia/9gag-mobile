@@ -2,6 +2,7 @@ import { DefaultTheme } from 'styled-components';
 // import GlobalStyles from './GlobalStyles';
 
 const Dark: DefaultTheme = {
+  name: 'dark',
   bgColor: '#010101',
   primary: '#222',
   primaryForeground: '#fff',

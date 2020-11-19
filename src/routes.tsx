@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -22,6 +21,8 @@ const Routes: React.FC = () => {
       <Stack.Navigator
         initialRouteName="auth.landing"
         screenOptions={{
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           headerStyle: {
             backgroundColor: theme.navigationBgColor,
@@ -31,7 +32,7 @@ const Routes: React.FC = () => {
             fontWeight: 'bold',
             fontFamily: 'AktivBold',
           },
-          headerLeft: HeaderBack,
+          headerLeft: () => <HeaderBack />,
         }}
       >
         <Stack.Screen

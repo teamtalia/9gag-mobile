@@ -48,7 +48,7 @@ const Signup: React.FC = () => {
       <Text>or</Text>
       <SignupWrapper>
         <InputSignup placeholder="Fullname" />
-        <InputSignup placeholder="Username" />
+        <InputSignup placeholder="Email" />
         <InputSignup
           placeholder="Password"
           autoCompleteType="password"

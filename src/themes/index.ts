@@ -3,6 +3,7 @@ import dark from './Dark';
 import light from './Light';
 
 export interface ThemeInterface {
+  name?: string;
   bgColor: string;
   primary: string;
   primaryForeground: string;

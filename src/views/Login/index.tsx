@@ -48,7 +48,7 @@ const Login: React.FC = () => {
       </ButtonsContainer>
       <Text>or</Text>
       <LoginWrapper>
-        <InputLogin placeholder="Enter Username" />
+        <InputLogin placeholder="Enter Email" />
         <InputLogin placeholder="Enter Password" autoCompleteType="password" />
       </LoginWrapper>
       <Footer>
