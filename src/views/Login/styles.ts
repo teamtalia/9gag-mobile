@@ -1,5 +1,5 @@
 import { darken, lighten } from 'polished';
-import { TouchableHighlightProps } from 'react-native';
+import { TextProps, TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -13,13 +13,13 @@ export const ButtonsContainer = styled.View`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 0px 20px 10px 20px;
+  margin: 20px 20px 10px 20px;
   align-items: center;
 `;
-interface ButtonProps extends TouchableHighlightProps {
+interface ButtonProps extends TouchableOpacityProps {
   isFb?: boolean;
 }
-export const Button = styled.TouchableHighlight<ButtonProps>`
+export const Button = styled.TouchableOpacity<ButtonProps>`
   align-items: center;
   justify-content: center;
   border-radius: 2px;
@@ -40,7 +40,7 @@ export const FullButtonWithIcon = styled(Button)`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme, isFb }) =>
-    isFb ? theme.colorBlue : theme.bgColor};
+    isFb ? theme.fbColor : theme.bgColor};
 `;
 export const Icon = styled.View`
   align-items: center;
@@ -49,9 +49,12 @@ export const Icon = styled.View`
   min-width: 50px;
   margin-right: 15px;
 `;
-
-export const ButtonContent = styled.Text`
-  color: ${({ theme }) => theme.primaryForeground};
+interface ButtonContentProps extends TextProps {
+  textLight?: boolean;
+}
+export const ButtonContent = styled.Text<ButtonContentProps>`
+  color: ${({ theme, textLight }) =>
+    textLight ? 'white' : theme.primaryForeground};
   font-family: 'AktivRegular';
   font-size: 16px;
   align-items: center;
@@ -94,13 +97,6 @@ export const InputLogin = styled.TextInput.attrs(props => ({
   font-family: 'AktivRegular';
   color: #fff;
   margin-bottom: 20px;
-  ::placeholder,
-  ::-webkit-input-placeholder {
-    color: red;
-  }
-  :-ms-input-placeholder {
-    color: red;
-  }
 `;
 export const Footer = styled.View`
   align-items: center;

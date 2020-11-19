@@ -1,23 +1,27 @@
 import styled from 'styled-components/native';
-import { darken } from 'polished';
-import { TouchableHighlightProps } from 'react-native';
+import {
+  TouchableHighlightProps,
+  TouchableOpacityProps,
+  ViewProps,
+} from 'react-native';
 
 export const Container = styled.View`
   position: relative;
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.bgColor};
+  background-color: #000;
 `;
 
 export const Heading = styled.Text`
-  color: ${({ theme }) => theme.primaryForeground};
+  color: #fff;
   font-size: 24px;
   margin: 15px auto;
   font-weight: 400;
 `;
 export const SubHeading = styled.Text`
-  color: ${({ theme }) => darken(0.4, theme.primaryForeground)};
+  color: #fff;
+  opacity: 0.6;
   font-size: 14px;
 `;
 
@@ -30,10 +34,10 @@ export const WrapperButtons = styled.View`
   width: 80%;
 `;
 
-interface PropsButton extends TouchableHighlightProps {
+interface PropsButton extends TouchableOpacityProps {
   isBlue?: boolean;
 }
-export const WrapperButton = styled.TouchableHighlight<PropsButton>`
+export const WrapperButton = styled.TouchableOpacity<PropsButton>`
   margin: 0;
   height: 40px;
   width: 100px;
@@ -41,12 +45,12 @@ export const WrapperButton = styled.TouchableHighlight<PropsButton>`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme, isBlue }) =>
-    !isBlue ? theme.primary : theme.colorBlue};
+    !isBlue ? '#222' : theme.colorBlue};
   border-radius: 2px;
 `;
 
 export const ButtonContent = styled.Text`
-  color: ${({ theme }) => theme.primaryForeground};
+  color: #fff;
 `;
 
 export const Footer = styled.View`

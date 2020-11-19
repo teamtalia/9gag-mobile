@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components';
-import Dark from './Dark';
-import Light from './Light';
+import dark from './Dark';
+import light from './Light';
 
 export interface ThemeInterface {
   bgColor: string;
@@ -11,20 +11,23 @@ export interface ThemeInterface {
   navigationForeground: string;
   // color bases
   colorBlue: string;
+
+  // socialNetWorkColors
+  fbColor: string;
 }
 
-export type ThemeType = 'Dark' | 'Light';
+export type ThemeType = 'dark' | 'light';
 
 interface ThemeGeneralInterface {
-  Dark: DefaultTheme;
-  Light?: DefaultTheme;
+  dark: DefaultTheme;
+  light: DefaultTheme;
   default: ThemeType;
 }
 
 const Theme: ThemeGeneralInterface = {
-  Dark,
-  Light,
-  default: 'Dark',
+  dark,
+  light,
+  default: 'light',
 };
 
 export default Theme;

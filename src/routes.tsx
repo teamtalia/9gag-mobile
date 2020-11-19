@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-// import { View } from 'react-native';
+import React, { useContext } from 'react';
+import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -10,15 +10,12 @@ import Login from './views/Login';
 import AuthLanding from './views/AuthLanding';
 import Signup from './views/Signup';
 import ForgotPassword from './views/ForgotPassword';
+import HeaderBack from './components/HeaderBack';
 
 const Stack = createStackNavigator();
 
 const Routes: React.FC = () => {
   const theme = useContext(ThemeContext);
-
-  useEffect(() => {
-    console.log(theme);
-  }, [theme]);
 
   return (
     <NavigationContainer>
@@ -34,6 +31,7 @@ const Routes: React.FC = () => {
             fontWeight: 'bold',
             fontFamily: 'AktivBold',
           },
+          headerLeft: HeaderBack,
         }}
       >
         <Stack.Screen

@@ -1,5 +1,5 @@
-import { darken, lighten } from 'polished';
-import { TouchableHighlightProps } from 'react-native';
+import { darken } from 'polished';
+import { TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -9,15 +9,14 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.primary};
 `;
 
-interface ButtonProps extends TouchableHighlightProps {
+interface ButtonProps extends TouchableOpacityProps {
   isFb?: boolean;
 }
-export const Button = styled.TouchableHighlight<ButtonProps>`
+export const Button = styled.TouchableOpacity<ButtonProps>`
   align-items: center;
   justify-content: center;
   border-radius: 1px;
   padding: 0 20px;
-  /* width: 80px; */
   height: 45px;
   font-size: 14px;
   font-weight: 400;
@@ -27,7 +26,7 @@ export const Button = styled.TouchableHighlight<ButtonProps>`
 `;
 
 export const ButtonContent = styled.Text`
-  color: ${({ theme }) => theme.primaryForeground};
+  color: white;
   font-family: 'AktivRegular';
   font-size: 16px;
   align-items: center;

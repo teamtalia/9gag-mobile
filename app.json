@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "9GAG",
-    "slug": "9GAG",
+    "name": "Θαλία",
+    "slug": "Talia",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "",
+    "githubUrl": "https://github.com/thalesdev/9gag-mobile"
   }
 }

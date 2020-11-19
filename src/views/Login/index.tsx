@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { ThemeContext } from 'styled-components';
 import {
   Container,
   InputLogin,
@@ -17,6 +18,7 @@ import {
 
 const Login: React.FC = () => {
   const navigator = useNavigation();
+  const theme = useContext(ThemeContext);
 
   return (
     <Container>
@@ -26,13 +28,19 @@ const Login: React.FC = () => {
             <Icon>
               <FontAwesome5 name="facebook-square" size={24} color="white" />
             </Icon>
-            <ButtonFullContent>Sign in with Facebook</ButtonFullContent>
+            <ButtonFullContent textLight>
+              Sign in with Facebook
+            </ButtonFullContent>
           </>
         </FullButtonWithIcon>
         <FullButtonWithIcon>
           <>
             <Icon>
-              <FontAwesome5 name="google" size={24} color="white" />
+              <FontAwesome5
+                name="google"
+                size={24}
+                color={theme.primaryForeground}
+              />
             </Icon>
             <ButtonFullContent>Sign in with Google</ButtonFullContent>
           </>

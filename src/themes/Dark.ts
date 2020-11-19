@@ -11,5 +11,6 @@ const Dark: DefaultTheme = {
   navigationForeground: '#fff',
   // -- default colors -- sections
   colorBlue: '#0077ff',
+  fbColor: '#3b5999',
 };
 export default Dark;
