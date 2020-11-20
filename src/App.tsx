@@ -4,20 +4,32 @@ import { StatusBar } from 'expo-status-bar';
 import { registerRootComponent, AppLoading } from 'expo';
 import React, { createContext, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components/native';
-import { loadAsync, useFonts } from 'expo-font';
+import { loadAsync } from 'expo-font';
 import Routes from './routes';
 import { ThemeType } from './themes';
 import useTheme from './hooks/useTheme';
+import EventEmitter from './util/EventEmitter';
+
+interface StateAppInterface {
+  inSearch: boolean;
+}
 
 interface AppContextInterface {
   setTheme?: React.Dispatch<React.SetStateAction<ThemeType>>;
+  inSearch: boolean;
+  setState?: React.Dispatch<React.SetStateAction<StateAppInterface>>;
 }
 
-const AppContext = createContext<AppContextInterface>({});
+export const AppContext = createContext<AppContextInterface>({});
 
 const App: React.FC = () => {
   const { theme, setTheme } = useTheme();
   const [loadedFonts, setLoadedFonts] = useState(false);
+  const [state, setState] = useState({
+    inSearch: false,
+  });
+
+  const { inSearch } = state;
 
   useEffect(() => {
     const loadFonts = async () => {
@@ -40,12 +52,16 @@ const App: React.FC = () => {
     <AppContext.Provider
       value={{
         setTheme,
+        inSearch,
+        setState,
       }}
     >
-      <ThemeProvider theme={theme}>
-        <StatusBar />
-        <Routes />
-      </ThemeProvider>
+      <EventEmitter>
+        <ThemeProvider theme={theme}>
+          <StatusBar />
+          <Routes />
+        </ThemeProvider>
+      </EventEmitter>
     </AppContext.Provider>
   );
 };

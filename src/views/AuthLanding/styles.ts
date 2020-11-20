@@ -64,5 +64,5 @@ export const Footer = styled.View`
 `;
 
 export const FooterText = styled.Text`
-  color: ${({ theme }) => theme.primaryDarkenForeground};
+  color: #777;
 `;

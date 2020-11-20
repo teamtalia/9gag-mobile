@@ -37,7 +37,7 @@ const AuthLanding: React.FC = () => {
         </WrapperButton>
       </WrapperButtons>
       <Footer>
-        <FooterText>Not now</FooterText>
+        <FooterText onPress={() => navigation.goBack()}>Not now</FooterText>
       </Footer>
     </Container>
   );

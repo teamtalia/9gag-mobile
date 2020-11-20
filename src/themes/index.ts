@@ -28,7 +28,7 @@ interface ThemeGeneralInterface {
 const Theme: ThemeGeneralInterface = {
   dark,
   light,
-  default: 'light',
+  default: 'dark',
 };
 
 export default Theme;

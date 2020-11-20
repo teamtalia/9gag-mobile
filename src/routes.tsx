@@ -10,16 +10,21 @@ import AuthLanding from './views/AuthLanding';
 import Signup from './views/Signup';
 import ForgotPassword from './views/ForgotPassword';
 import HeaderBack from './components/HeaderBack';
+import Menu, { HomeLeft } from './views/Menu';
+import HomeRight from './components/HomeRight';
+
+import { AppContext } from './App';
 
 const Stack = createStackNavigator();
 
 const Routes: React.FC = () => {
   const theme = useContext(ThemeContext);
+  const { inSearch } = useContext(AppContext);
 
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="auth.landing"
+        initialRouteName="home"
         screenOptions={{
           gestureEnabled: true,
           gestureDirection: 'horizontal',
@@ -54,6 +59,20 @@ const Routes: React.FC = () => {
           name="auth.landing"
           component={AuthLanding}
           options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="home"
+          component={Menu}
+          options={{
+            title: 'Θαλία',
+            headerLeft: HomeLeft,
+            headerStyle: {
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerRight: () => <HomeRight />,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
