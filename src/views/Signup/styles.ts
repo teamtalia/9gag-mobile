@@ -40,7 +40,7 @@ export const FullButtonWithIcon = styled(Button)`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme, isFb }) =>
-    isFb ? theme.colorBlue : theme.bgColor};
+    isFb ? theme.fbColor : theme.bgColor};
 `;
 export const Icon = styled.View`
   align-items: center;

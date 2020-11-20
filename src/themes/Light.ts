@@ -1,6 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 const Light: DefaultTheme = {
+  name: 'light',
   bgColor: '#f4f4f4',
   primary: '#ddd',
   primaryForeground: '#333',

@@ -3,6 +3,7 @@ import dark from './Dark';
 import light from './Light';
 
 export interface ThemeInterface {
+  name?: string;
   bgColor: string;
   primary: string;
   primaryForeground: string;
@@ -27,7 +28,7 @@ interface ThemeGeneralInterface {
 const Theme: ThemeGeneralInterface = {
   dark,
   light,
-  default: 'light',
+  default: 'dark',
 };
 
 export default Theme;

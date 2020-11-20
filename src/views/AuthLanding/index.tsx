@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native';
 
 import {
@@ -13,15 +13,18 @@ import {
   FooterText,
 } from './styles';
 import logo from '../../../assets/images/talia-icon-white.png';
+import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
 
 const AuthLanding: React.FC = () => {
   const navigation = useNavigation();
 
   return (
     <Container>
+      <FocusAwareStatusBar color="#000" barStyle="light-content" />
+
       <Image source={logo} style={{ width: 120, height: 120 }} />
       <Heading>Exclusive for Θαλία users</Heading>
-      <SubHeading>Join us and have fung together!</SubHeading>
+      <SubHeading>Join us and have fun together!</SubHeading>
       <WrapperButtons>
         <WrapperButton
           isBlue
@@ -34,7 +37,7 @@ const AuthLanding: React.FC = () => {
         </WrapperButton>
       </WrapperButtons>
       <Footer>
-        <FooterText>Not now</FooterText>
+        <FooterText onPress={() => navigation.goBack()}>Not now</FooterText>
       </Footer>
     </Container>
   );
