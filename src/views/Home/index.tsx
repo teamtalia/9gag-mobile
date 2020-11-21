@@ -6,6 +6,7 @@ import { ThemeContext } from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
 import { Container } from './styles';
 import useSyncMenu from '../../hooks/useSyncMenu';
+import BottomModals from '../../components/BottomModals';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
   const theme = useContext(ThemeContext);
   return (
     <Container>
+      <BottomModals />
       <Tab.Navigator
         initialRouteName="home.hot"
         tabBarOptions={{

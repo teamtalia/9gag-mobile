@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -20,6 +20,10 @@ const Stack = createStackNavigator();
 const Routes: React.FC = () => {
   const theme = useContext(ThemeContext);
   const { inSearch } = useContext(AppContext);
+
+  useEffect(() => {
+    console.log('deele', theme);
+  }, [theme]);
 
   return (
     <NavigationContainer>
@@ -60,7 +64,6 @@ const Routes: React.FC = () => {
           component={AuthLanding}
           options={{ headerShown: false }}
         />
-
         <Stack.Screen
           name="home"
           component={Menu}
@@ -70,7 +73,9 @@ const Routes: React.FC = () => {
             headerStyle: {
               shadowOpacity: 0,
               elevation: 0,
+              backgroundColor: theme.navigationBgColor,
             },
+            headerTintColor: theme.navigationForeground,
             headerRight: () => <HomeRight />,
           }}
         />

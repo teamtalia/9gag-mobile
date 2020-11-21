@@ -4,6 +4,7 @@ import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
+import useEventDispatch from '../../hooks/useEventDispatch';
 
 import { Container, Button, SearchInput } from './styles';
 
@@ -13,6 +14,8 @@ const HomeRight: React.FC = () => {
     setInSearch(ins => !ins);
   };
   const navigator = useNavigation();
+  const dispatch = useEventDispatch();
+
   const theme = useContext(ThemeContext);
 
   return (
@@ -42,7 +45,7 @@ const HomeRight: React.FC = () => {
               color={theme.navigationForeground}
             />
           </Button>
-          <Button onPress={() => navigator.navigate('auth.landing')}>
+          <Button onPress={() => dispatch('modals.header.navigation@open', true)}>
             <FontAwesome
               name="user-circle"
               size={24}

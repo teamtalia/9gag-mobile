@@ -1,12 +1,12 @@
-import { ViewProps, Dimensions } from 'react-native';
+import { ViewProps, Dimensions, TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('window');
 
-interface ContainerProps extends ViewProps {
+interface ContainerProps extends TouchableOpacityProps {
   inSearch?: boolean;
 }
-export const Container = styled.View<ContainerProps>`
+export const Container = styled.TouchableOpacity<ContainerProps>`
   display: flex;
   flex-shrink: 1;
   flex-direction: row;
@@ -26,7 +26,10 @@ export const Button = styled.TouchableOpacity`
   justify-content: center;
 `;
 
-export const SearchInput = styled.TextInput`
+export const SearchInput = styled.TextInput.attrs(props => ({
+  placeholderTextColor: props.theme.primaryDarkenForeground,
+}))`
   flex: 1;
   padding-left: 15px;
+  color: ${({ theme }) => theme.primaryForeground};
 `;

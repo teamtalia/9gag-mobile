@@ -95,7 +95,7 @@ export const InputLogin = styled.TextInput.attrs(props => ({
   background-color: ${({ theme }) => darken(0.02, theme.primary)};
   padding: 11px 10px 8px 15px;
   font-family: 'AktivRegular';
-  color: #fff;
+  color: ${({ theme }) => theme.primaryForeground};
   margin-bottom: 20px;
 `;
 export const Footer = styled.View`

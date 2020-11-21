@@ -6,9 +6,10 @@ import React, { createContext, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import { loadAsync } from 'expo-font';
 import Routes from './routes';
-import { ThemeType } from './themes';
+import Theme, { ThemeType } from './themes';
 import useTheme from './hooks/useTheme';
 import EventEmitter from './util/EventEmitter';
+import Dark from './themes/Dark';
 
 interface StateAppInterface {
   inSearch: boolean;
@@ -23,7 +24,7 @@ interface AppContextInterface {
 export const AppContext = createContext<AppContextInterface>({});
 
 const App: React.FC = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, loaded } = useTheme();
   const [loadedFonts, setLoadedFonts] = useState(false);
   const [state, setState] = useState({
     inSearch: false,
@@ -44,7 +45,7 @@ const App: React.FC = () => {
     loadFonts();
   }, []);
 
-  if (!loadedFonts) {
+  if (!loadedFonts || !loaded) {
     return null;
   }
 
