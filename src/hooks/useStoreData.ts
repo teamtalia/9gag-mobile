@@ -31,6 +31,25 @@ export const storeString = async (key: string, value: any) => {
   }
 };
 
+export const storeObject = async (key: string, value: any) => {
+  try {
+    const { error } = await getDataString(`@talia@${key}`);
+    const jsonValue = JSON.stringify(value);
+    if (!error) {
+      await AsyncStorage.mergeItem(`@talia@${key}`, jsonValue);
+    } else {
+      await AsyncStorage.setItem(`@talia@${key}`, jsonValue);
+    }
+    return {
+      error: false,
+    };
+  } catch (e) {
+    return {
+      error: e,
+    };
+  }
+};
+
 export const useStoreObject = async (key: string, value: any) => {
   const [error, setError] = useState<any>(false);
   try {
@@ -41,14 +60,4 @@ export const useStoreObject = async (key: string, value: any) => {
     setError(e);
   }
   return { error };
-};
-
-export const storeObject = async (key: string, value: any) => {
-  try {
-    const jsonValue = JSON.stringify(value);
-    await AsyncStorage.setItem(`@talia@${key}`, jsonValue);
-    return { error: false };
-  } catch (e) {
-    return { error: e };
-  }
 };

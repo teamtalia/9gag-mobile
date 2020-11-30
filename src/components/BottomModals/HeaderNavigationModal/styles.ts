@@ -1,6 +1,24 @@
-import { lighten, shade } from 'polished';
-import { TouchableOpacityProps, ViewProps } from 'react-native';
+import { TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
+
+export const EndZone = styled.TouchableWithoutFeedback`
+  flex: 1;
+  background-color: black;
+`;
+
+export const ProBadgeContainer = styled.View`
+  padding: 2px 5px;
+  background: #573501;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+`;
+
+export const ProBadgeContent = styled.Text`
+  color: white;
+  font-weight: bold;
+  font-family: 'AktivBold';
+`;
 
 export const Container = styled.View`
   flex: 1;
@@ -24,6 +42,8 @@ export const ModalContainer = styled.View.attrs({
   background-color: ${({ theme }) => theme.bgColor};
   align-items: flex-start;
   justify-content: center;
+  flex-shrink: 0;
+  padding-bottom: 20px;
 `;
 
 interface ItemContainerProps extends TouchableOpacityProps {

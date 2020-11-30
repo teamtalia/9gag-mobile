@@ -19,11 +19,23 @@
     "ios": {
       "supportsTablet": true
     },
+    "facebookAppId": "441714206821575",
+    "facebookDisplayName": "Θαλία",
+    "facebookScheme": "fb441714206821575",
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": [
+        "INTERNET",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "READ_INTERNAL_STORAGE",
+        "WRITE_INTERNAL_STORAGE",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"

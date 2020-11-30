@@ -3,7 +3,6 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 import { View } from 'react-native';
 import { ThemeContext } from 'styled-components';
-import { useNavigation } from '@react-navigation/native';
 import { Container } from './styles';
 import useSyncMenu from '../../hooks/useSyncMenu';
 import BottomModals from '../../components/BottomModals';

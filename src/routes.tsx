@@ -14,6 +14,8 @@ import Menu, { HomeLeft } from './views/Menu';
 import HomeRight from './components/HomeRight';
 
 import { AppContext } from './App';
+import HeaderNavigationModal from './components/BottomModals/HeaderNavigationModal';
+import ResetPassword from './views/ResetPassword';
 
 const Stack = createStackNavigator();
 
@@ -58,6 +60,11 @@ const Routes: React.FC = () => {
           name="auth.forgot"
           component={ForgotPassword}
           options={{ title: 'Forgot Password' }}
+        />
+        <Stack.Screen
+          name="auth.reset"
+          component={ResetPassword}
+          options={{ title: 'Reset Password' }}
         />
         <Stack.Screen
           name="auth.landing"

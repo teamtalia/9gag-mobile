@@ -1,15 +1,15 @@
 /* eslint-disable global-require */
 /* eslint-disable react/style-prop-object */
 import { StatusBar } from 'expo-status-bar';
-import { registerRootComponent, AppLoading } from 'expo';
+import { registerRootComponent } from 'expo';
 import React, { createContext, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import { loadAsync } from 'expo-font';
 import Routes from './routes';
-import Theme, { ThemeType } from './themes';
+import { ThemeType } from './themes';
 import useTheme from './hooks/useTheme';
 import EventEmitter from './util/EventEmitter';
-import Dark from './themes/Dark';
+import { AuthContextProvider } from './contexts/AuthContext';
 
 interface StateAppInterface {
   inSearch: boolean;
@@ -21,7 +21,9 @@ interface AppContextInterface {
   setState?: React.Dispatch<React.SetStateAction<StateAppInterface>>;
 }
 
-export const AppContext = createContext<AppContextInterface>({});
+export const AppContext = createContext<AppContextInterface>(
+  {} as AppContextInterface,
+);
 
 const App: React.FC = () => {
   const { theme, setTheme, loaded } = useTheme();
@@ -57,12 +59,14 @@ const App: React.FC = () => {
         setState,
       }}
     >
-      <EventEmitter>
-        <ThemeProvider theme={theme}>
-          <StatusBar />
-          <Routes />
-        </ThemeProvider>
-      </EventEmitter>
+      <AuthContextProvider>
+        <EventEmitter>
+          <ThemeProvider theme={theme}>
+            <StatusBar />
+            <Routes />
+          </ThemeProvider>
+        </EventEmitter>
+      </AuthContextProvider>
     </AppContext.Provider>
   );
 };

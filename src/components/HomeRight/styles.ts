@@ -21,7 +21,7 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
 `;
 
 export const Button = styled.TouchableOpacity`
-  padding: 0 10px;
+  padding: 0 12.5px;
   align-items: center;
   justify-content: center;
 `;

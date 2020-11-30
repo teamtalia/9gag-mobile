@@ -75,5 +75,13 @@ export const getDataObject = async (key: string) => {
       error: e
     };
   }
+}
 
+export const removeItem = async (key: string) => {
+  try {
+    await AsyncStorage.removeItem(`@talia@${key}`);
+    return true;
+  } catch (err) {
+    return false;
+  }
 }

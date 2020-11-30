@@ -45,7 +45,10 @@ const HomeRight: React.FC = () => {
               color={theme.navigationForeground}
             />
           </Button>
-          <Button onPress={() => dispatch('modals.header.navigation@open', true)}>
+          <Button onPress={() => {
+            dispatch('modals.header.navigation@open', true)
+          }}
+          >
             <FontAwesome
               name="user-circle"
               size={24}
