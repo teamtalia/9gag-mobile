@@ -53,14 +53,19 @@ export const HomeLeft = () => {
 };
 
 const Menu: React.FC = () => {
+  const theme = useContext(ThemeContext);
+
   return (
     <Container>
-      <Drawer.Navigator>
+      <Drawer.Navigator drawerStyle={{
+        backgroundColor: theme.navigationBgColor
+      }}
+      >
         <Drawer.Screen
           name="@home"
           component={Home}
           options={{
-            title: 'Home',
+            title: 'Home'
           }}
         />
         {/* <Drawer.Screen name="Article" component={Article} /> */}

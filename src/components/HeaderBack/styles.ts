@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.TouchableNativeFeedback`
+export const Container = styled.TouchableWithoutFeedback`
   display: flex;
   text-align: center;
   width: 50px;

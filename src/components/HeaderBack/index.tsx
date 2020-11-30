@@ -9,7 +9,7 @@ const HeaderBack: React.FC = () => {
   const navigate = useNavigation();
   const theme = useContext(ThemeContext);
   return (
-    <Container onPressIn={() => navigate.goBack()}>
+    <Container onPress={() => navigate.goBack()}>
       <Ionicons
         name="md-arrow-round-back"
         size={24}

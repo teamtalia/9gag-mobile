@@ -13,10 +13,8 @@ interface ButtonProps extends TouchableOpacityProps {
   isFb?: boolean;
 }
 export const Button = styled.TouchableOpacity<ButtonProps>`
-  display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
   border-radius: 1px;
   padding: 0 20px;
   height: 45px;
@@ -30,7 +28,7 @@ export const Button = styled.TouchableOpacity<ButtonProps>`
 export const ButtonContent = styled.Text`
   color: white;
   font-family: 'AktivRegular';
-  font-size: 14px;
+  font-size: 16px;
   align-items: center;
   justify-content: center;
 `;
@@ -56,16 +54,10 @@ export const InputForgot = styled.TextInput.attrs(props => ({
   margin-bottom: 15px;
 `;
 export const Footer = styled.View`
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
   flex-direction: row;
   width: 98%;
   height: 45px;
   padding: 0 10px;
-`;
-
-export const AlreadyText = styled.Text`
-  margin-top: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
 `;
